@@ -8,9 +8,10 @@ public class CarModel {
 
 
     public CarModel(String brand, String model, int id) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
-        this.id = id;
+
     }
 
     @Override

@@ -1,16 +1,20 @@
 package web.service;
 
+
+import org.springframework.stereotype.Component;
 import web.model.CarModel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarServiceImpl extends CarService {
 
+@Component
+public class CarService {
 
-    private final List<CarModel> cars = new ArrayList<>();
+     static List<CarModel> cars;
 
     {
+        cars = new ArrayList<>();
         cars.add(new CarModel("TAZ", "2101", 1));
         cars.add(new CarModel("TAZ", "2102", 2));
         cars.add(new CarModel("TAZ", "2103", 3));
@@ -18,13 +22,13 @@ public class CarServiceImpl extends CarService {
         cars.add(new CarModel("TAZ", "2105", 5));
     }
 
-@Override
-    public List<CarModel> getCars() {
 
+    public List<CarModel> getCars() {
         return cars;
     }
-@Override
     public List<CarModel> getCount(int count) {
         return cars.stream().limit(count).collect(Collectors.toList());
     }
+
+
 }
